@@ -2,5 +2,5 @@ from app import start_play, welcome
 
 
 
-welcome("Ravit")
+welcome()
 start_play()

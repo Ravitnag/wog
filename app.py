@@ -1,10 +1,10 @@
-from guess_game import play as guess_play
-from currency_roulette_game import play as currency_roulette_play
-from memory_game import play as memory_game
+from games.guess_game import play as guess_play
+from games.currency_roulette_game import play as currency_roulette_play
+from games.memory_game import play as memory_game
 from score import add_score, zero_score
 
 def welcome():
-    username = input("please enter your name\n")
+    username = input("please enter your name:\n")
     print(f"Hi {username} and welcome to the World of Games: The Epic Journey")
 
 
