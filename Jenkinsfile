@@ -27,4 +27,5 @@ node {
                 bat 'docker-compose down'
                 bat "docker push main_score:1.5"
             }
+    }
 }
