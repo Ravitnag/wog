@@ -4,10 +4,8 @@ node {
     }
 
         stage('Build') {
-        steps {
                 // Run docker build
                 bat 'docker build -t main_score:1.5 .'
-            }
         }
 
     stage('run') {
