@@ -6,4 +6,4 @@ services:
     volumes:
       - ./user_scores.txt:/app/user_scores.txt
     ports:
-      - "80:5000"
+      - "8777:5000"
