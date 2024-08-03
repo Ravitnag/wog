@@ -22,7 +22,7 @@ node {
             script {
                 // Perform Docker login
                 bat """
-                echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+                docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
                 """
                 // Tag and push the Docker image
                 bat 'docker tag main_score:1.5 $DOCKER_USERNAME/main_score:1.5'
