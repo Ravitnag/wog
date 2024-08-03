@@ -14,7 +14,7 @@ node {
         }
 
     stage('Test') {
-       bat 'python e2e.python'
+       bat 'python e2e.py'
     }
 
     stage('Finalize') {
