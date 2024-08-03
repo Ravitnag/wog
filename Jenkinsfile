@@ -17,12 +17,19 @@ node {
        bat 'python e2e.py'
     }
 
-    stage('Finalize') {
-
-
-                bat 'docker-compose down'
-                bat 'docker tag main_score:1.5 01022021/main_score:1.5'
-                bat "docker push 01022021/main_score:1.5"
-            
+     stage('Finalize') {
+        withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+            script {
+                // Perform Docker login
+                bat """
+                echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+                """
+                // Tag and push the Docker image
+                bat 'docker tag main_score:1.5 $DOCKER_USERNAME/main_score:1.5'
+                bat 'docker push $DOCKER_USERNAME/main_score:1.5'
+            }
+        }
+        // Stop and remove Docker containers
+        bat 'docker-compose down'
     }
 }
