@@ -9,10 +9,8 @@ node {
         }
 
     stage('run') {
-        steps {
                 // Run docker-compose up
-                bat 'docker-compose up -d'
-            }
+                bat 'docker-compose up -d'          
         }
 
     stage('Test') {
@@ -20,10 +18,10 @@ node {
     }
 
     stage('Finalize') {
-        steps {
+      
                 // Run docker stop
                 bat 'docker-compose down'
                 bat "docker push main_score:1.5"
-            }
+            
     }
 }
