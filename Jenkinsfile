@@ -25,8 +25,8 @@ node {
                 docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
                 """
                 // Tag and push the Docker image
-                bat 'docker tag main_score:1.5 $DOCKER_USERNAME/main_score:1.5'
-                bat 'docker push $DOCKER_USERNAME/main_score:1.5'
+                bat """docker tag main_score:1.5 $DOCKER_USERNAME/main_score:1.5"""
+                bat """docker push $DOCKER_USERNAME/main_score:1.5"""
             }
         }
         // Stop and remove Docker containers
