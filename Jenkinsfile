@@ -18,11 +18,11 @@ node {
     }
 
     stage('Finalize') {
-      
-                // Run docker stop
-                bat 'docker tag main_score:1.5 01022021/main_score:1.5'
+
+
                 bat 'docker-compose down'
-                bat "docker push main_score:1.5"
+                bat 'docker tag main_score:1.5 01022021/main_score:1.5'
+                bat "docker push 01022021/main_score:1.5"
             
     }
 }
