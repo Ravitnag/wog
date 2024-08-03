@@ -20,6 +20,7 @@ node {
     stage('Finalize') {
       
                 // Run docker stop
+                bat 'docker login'
                 bat 'docker-compose down'
                 bat "docker push main_score:1.5"
             
